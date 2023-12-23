@@ -17,7 +17,12 @@ return new class extends Migration
             $table->decimal('price', 10, 2);
             $table->integer('stock');
             $table->string('image');
+            $table->unsignedBigInteger('store_id');
             $table->timestamps();
+        });
+
+        Schema::table('products', function (Blueprint $table) {
+            $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
         });
     }
 
