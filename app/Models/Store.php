@@ -10,4 +10,9 @@ class Store extends Model
     use HasFactory;
 
     protected $fillable = ['store_name', 'postal_code', 'status', 'user_id'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }
