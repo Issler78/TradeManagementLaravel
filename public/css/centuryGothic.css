@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Century Gothic';
+    src: url('/public/fonts/centurygothicagain-regular.ttf') format('truetype');
+}
+
+body{
+    font-family: 'Century Gothic', sans-serif;
+}
