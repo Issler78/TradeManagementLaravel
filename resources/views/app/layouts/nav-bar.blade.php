@@ -14,8 +14,13 @@
             </div>
 
             <div class="d-flex">
-                <button class="btn btn-outline-light me-2">Log in</button>
-                <button class="btn btn-outline-light">Log out</button>
+                @guest    
+                    <button class="btn btn-outline-light me-2">Log in <i class="bi bi-box-arrow-in-right"></i></button>
+                    <button class="btn btn-outline-light">Sign Up</button>
+                @endguest
+                @auth
+                    <button class="btn btn-outline-light me-2">Log out <i class="bi bi-box-arrow-in-left"></i></button>
+                @endauth
             </div>
         </div>
     </div>
