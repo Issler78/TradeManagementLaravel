@@ -1,0 +1,39 @@
+/* store table */
+.table-group-divider {
+    color: blue;
+}
+
+/* Modal create store */
+.modal-content .btn-close{
+    outline: none;
+    box-shadow: none;
+}
+
+.modal-content {
+    background-color: rgb(211, 210, 209);
+    border-color: rgb(33,37,41);
+    border-width: 0.8px;
+}
+
+.modal-body .form-label {
+    color: #000000;
+    margin-bottom: 5px;
+}
+
+.modal-body .form-control,
+.modal-body .form-select {
+    border-bottom: 3px solid blue;
+    border-radius: 0;
+    background-color: #2c3034;
+    color: white;
+}
+
+.modal-body .form-control::placeholder,
+.modal-body .form-select::placeholder{
+    color: rgb(140, 140, 140);
+}
+
+.modal-body .form-control:focus,
+.modal-body .form-select:focus {
+    box-shadow: none !important;
+}
