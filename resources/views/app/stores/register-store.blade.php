@@ -8,17 +8,18 @@
                 <h2 id="createStoreLabel">Register Store</h2>
             </div>
             <div class="modal-body">
-                <form>
+                <form action="/stores" method="post">
+                    @csrf
                     <div class="mb-4">
                         <label for="inputStore" class="form-label">Store</label>
-                        <input type="text" class="form-control" id="inputStore" placeholder="Store Name">
+                        <input type="text" class="form-control" id="inputStore" placeholder="Store Name" name="store_name">
                     </div>
                     <div class="mb-4">
                         <label for="inputPostalCode" class="form-label">Postal Code / Zip Code</label>
-                        <input type="text" class="form-control" id="inputPostalCode" placeholder="Enter your store postal code">
+                        <input type="text" class="form-control" id="inputPostalCode" placeholder="Enter your store postal code" name="postal_code">
                     </div>
                     <label for="statusStore" class="form-label">Store Status</label>
-                    <select class="form-select mb-4" aria-label="Store Status" id="statusStore">
+                    <select class="form-select mb-4" aria-label="Store Status" id="statusStore" name="status">
                         <option selected>Store status</option>
                         <option value="A">Active</option>
                         <option value="I">Inactive</option>
