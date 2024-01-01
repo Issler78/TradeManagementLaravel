@@ -26,4 +26,20 @@ class StoreController extends Controller
         Store::create($request->all());
         return redirect()->back();
     }
+
+    public function update(Request $request)
+    {
+        $request->validate([
+            'store_name' => 'required|min:3|max:255',
+            'postal_code' => [
+                                'required',
+                                'digits:8',
+                                Rule::unique('stores', 'postal_code')->ignore($request->id)
+                            ],
+            'status' => 'required|in:A,I'
+        ]);
+
+        Store::findOrFail($request->id)->update($request->all());
+        return redirect()->back();
+    }
 }

@@ -10,6 +10,8 @@
             <div class="modal-body">
                 <form action="/stores" method="post">
                     @csrf
+                    @method('PUT')
+                    <input type="hidden" name="id" value="{{ $store['id'] }}">
                     <div class="mb-4">
                         <label for="inputStore" class="form-label">Store</label>
                         <input type="text" class="form-control" id="inputStore" placeholder="Store Name" name="store_name" value="{{ $store['store_name'] }}">
@@ -23,29 +25,28 @@
                         <select class="form-select mb-2" aria-label="Store Status" id="statusStore" name="status">
                             <option selected>Store status</option>
                             <option value="A" 
-                                @if ($store['status'] == 'A')
-                                    selected
-                                @endif
+                            @if ($store['status'] == 'A')
+                            selected
+                            @endif
                             >
-                                Active
-                            </option>
-                            <option value="I"
-                                @if ($store['status'] == 'I')
-                                    selected
-                                @endif
-                            >
-                                Inactive
-                            </option>
-                        </select>
-
-                        @include('app.stores.delete-button')
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <button type="submit" class="btn btn-outline-dark d-flex justify-content-between gap-2" title="Save Store">Save<i class="bi bi-floppy"></i></button>
-                        <button type="button" class="btn btn-outline-dark d-flex justify-content-between gap-1" title="Cancel" data-bs-dismiss="modal">Cancel<i class="bi bi-chevron-bar-right"></i></button>
-                    </div>
-                </form>
+                            Active
+                        </option>
+                        <option value="I"
+                        @if ($store['status'] == 'I')
+                        selected
+                        @endif
+                        >
+                        Inactive
+                    </option>
+                </select>
             </div>
-        </div>
+            <div class="d-flex justify-content-between mb-3">
+                <button type="submit" class="btn btn-outline-dark d-flex justify-content-between gap-2" title="Save Store">Save<i class="bi bi-floppy"></i></button>
+                <button type="button" class="btn btn-outline-dark d-flex justify-content-between gap-1" title="Cancel" data-bs-dismiss="modal">Cancel<i class="bi bi-chevron-bar-right"></i></button>
+            </div>
+        </form>
+        @include('app.stores.delete-button')
     </div>
+</div>
+</div>
 </div>
