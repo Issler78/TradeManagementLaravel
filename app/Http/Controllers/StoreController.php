@@ -42,4 +42,10 @@ class StoreController extends Controller
         Store::findOrFail($request->id)->update($request->all());
         return redirect()->back();
     }
+
+    public function destroy(string $id)
+    {
+        Store::findOrFail($id)->delete();
+        return redirect()->back();
+    }
 }
