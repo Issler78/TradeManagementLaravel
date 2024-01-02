@@ -9,11 +9,11 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-            <div class="navbar-nav mx-auto">
+            <div class="navbar-nav mx-auto class-visible-sm">
                 <a class="nav-link" href="/stores">My stores</a>
             </div>
 
-            <div class="d-flex">
+            <div class="d-flex justify-content-between mt-2">
                 @guest    
                     <button class="btn btn-outline-light me-2">Log in <i class="bi bi-box-arrow-in-right"></i></button>
                     <button class="btn btn-outline-light">Sign Up</button>

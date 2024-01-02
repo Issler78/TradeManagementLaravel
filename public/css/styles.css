@@ -37,3 +37,15 @@
 .modal-body .form-select:focus {
     box-shadow: none !important;
 }
+
+@media screen and (max-width: 767.5px) {
+    .class-visible-md{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .class-visible-sm{
+        display: none;
+    }
+}
