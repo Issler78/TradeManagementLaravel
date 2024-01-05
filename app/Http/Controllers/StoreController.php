@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreRequest;
 use App\Models\Store;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -14,38 +15,26 @@ class StoreController extends Controller
         return view('app.stores.stores', compact('stores'));
     }
 
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        $request['user_id'] = 1;
-        $request->validate([
-            'store_name' => 'required|min:3|max:255',
-            'postal_code' => 'required|digits:8|unique:stores,postal_code',
-            'status' => 'required|in:A,I'
-        ]);
+        $data = $request->validated();
+        $data['user_id'] = 1;
 
-        Store::create($request->all());
+        Store::create($data);
         return redirect()->back();
     }
 
-    public function update(Request $request)
+    public function update(StoreRequest $request, string $store)
     {
-        $request->validate([
-            'store_name' => 'required|min:3|max:255',
-            'postal_code' => [
-                                'required',
-                                'digits:8',
-                                Rule::unique('stores', 'postal_code')->ignore($request->id)
-                            ],
-            'status' => 'required|in:A,I'
-        ]);
+        $data = $request->validated();
 
-        Store::findOrFail($request->id)->update($request->all());
+        Store::findOrFail($store)->update($data);
         return redirect()->back();
     }
 
-    public function destroy(string $id)
+    public function destroy(string $store)
     {
-        Store::findOrFail($id)->delete();
+        Store::findOrFail($store)->delete();
         return redirect()->back();
     }
 }

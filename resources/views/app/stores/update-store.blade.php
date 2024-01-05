@@ -8,10 +8,9 @@
                 <h2 id="updateStoreLabel">Edit Store</h2>
             </div>
             <div class="modal-body">
-                <form action="/stores" method="post">
+                <form action="/stores/{{ $store['id'] }}" method="post">
                     @csrf
                     @method('PUT')
-                    <input type="hidden" name="id" value="{{ $store['id'] }}">
                     <div class="mb-4">
                         <label for="inputStore" class="form-label">Store</label>
                         <input type="text" class="form-control" id="inputStore" placeholder="Store Name" name="store_name" value="{{ $store['store_name'] }}">
