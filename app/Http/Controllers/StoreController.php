@@ -4,14 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreRequest;
 use App\Models\Store;
+use App\Services\Store\StoreService;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
 class StoreController extends Controller
 {
+    public function __construct(
+        protected StoreService $service
+    ){}
+
     public function index()
     {
-        $stores = Store::all();
+        $stores = $this->service->getAll();
         return view('app.stores.stores', compact('stores'));
     }
 
@@ -34,7 +39,7 @@ class StoreController extends Controller
 
     public function destroy(string $store)
     {
-        Store::findOrFail($store)->delete();
+        $this->service->delete($store);
         return redirect()->back();
     }
 }
