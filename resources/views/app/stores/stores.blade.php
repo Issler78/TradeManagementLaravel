@@ -25,7 +25,7 @@
                     <tr>
                         <td>{{ $store['store_name'] }}</td>
                         <td class="class-visible-md">{{ $store['postal_code'] }}</td>
-                        <td class="class-visible-sm text-center">{{ $store['status'] }}</td>
+                        <td class="class-visible-sm text-center">{{ getStatusValue($store['status']) }}</td>
                         <td class="text-center">
                             <button class="btn btn-outline-light" title="Edit Store"data-bs-toggle="modal" data-bs-target="#updateStore-{{ $store['id'] }}"><i class="bi bi-pencil"></i></button>
                             <button class="btn btn-outline-light" title="View Store"><i class="bi bi-eye"></i></button>
