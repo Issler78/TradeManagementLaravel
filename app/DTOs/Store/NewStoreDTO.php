@@ -7,13 +7,13 @@ use App\Http\Requests\StoreRequest;
 class NewStoreDTO
 {
     public function __construct(
-        string $store_name,
-        string $postal_code,
-        string $status,
-        string $user_id
+        public string $store_name,
+        public string $postal_code,
+        public string $status,
+        public string $user_id
     ){}
 
-    static function makeFromRequest(StoreRequest $request): self
+    public static function makeFromRequest(StoreRequest $request): self
     {
         return new self(
             $request->store_name,

@@ -4,10 +4,13 @@ namespace App\Services\Store;
 
 use App\DTOs\Store\NewStoreDTO;
 use App\DTOs\Store\UpdateStoreDTO;
+use App\Repositories\Store\StoreEloquentORM;
 
 class StoreService
 {
-    protected $repository;
+    public function __construct(
+        protected StoreEloquentORM $repository
+    ){}
 
     public function getAll()
     {

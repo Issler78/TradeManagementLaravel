@@ -18,8 +18,7 @@ class StoreController extends Controller
 
     public function index()
     {
-        // $stores = $this->service->getAll();
-        $stores = Store::all();
+        $stores = $this->service->getAll();
         return view('app.stores.stores', compact('stores'));
     }
 

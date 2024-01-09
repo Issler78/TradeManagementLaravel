@@ -7,11 +7,11 @@ use App\Http\Requests\StoreRequest;
 class UpdateStoreDTO
 {
     public function __construct(
-        string $id,
-        string $store_name,
-        string $postal_code,
-        string $status,
-        string $user_id
+        public string $id,
+        public string $store_name,
+        public string $postal_code,
+        public string $status,
+        public string $user_id
     ){}
 
     static function makeFromRequest(StoreRequest $request): self
