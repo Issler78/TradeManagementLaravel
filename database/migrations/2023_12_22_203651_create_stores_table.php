@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\Store\StoreEnum;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('store_name');
             $table->string('postal_code')->unique();
-            $table->enum('status', ['A', 'I']);
+            $table->enum('status', array_column (StoreEnum::cases(), 'name'));
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
